@@ -51,7 +51,7 @@ module.exports.start = function start() {
     });
 
 
-    app.listen(5000, function () {
+    app.listen(port, function () {
       // Create server URL
       var server = 'http://' + host + ':' + 5000;
       
