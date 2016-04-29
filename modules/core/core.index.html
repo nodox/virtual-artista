@@ -38,9 +38,9 @@
     </nav>
 
     <div class="container">
+
       <div class="row">
         <div class="col-sm-12">
-            
             <div class="center">
                 <h1>{{ greeting }}</h1>
             </div>
@@ -56,9 +56,23 @@
                 </tr>
               </tbody>
             </table>
-
         </div>
-      </div>
+      </div> <!-- .row -->
+      <div class="row">
+        <div class="col-sm-12">
+            <h3>Test this by sending a message to yourself!</h3>
+            <form>
+            <div class="form-group">
+              Name: <input type="text" class="form-control" ng-model="guest.name" placeholder="MY NAME"> 
+            </div>
+            <div class="form-group">
+              Number: (no symbols or spaces)<input type="text" ng-model="guest.number" class="form-control" placeholder="0123456789">
+              <button type="submit" class="btn btn-default" ng-click="sendGuestSMS(guest)">Send SMS</button>
+            </div>
+          </form>
+        </div>
+      </div> <!-- .row -->
+
     </div>
 
 

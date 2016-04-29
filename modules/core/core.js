@@ -3,7 +3,9 @@
 var app = angular.module('virtualArtista', []);
 
 app.controller('CoreController', function ($scope, $http) {
-
+	
+	$scope.guest = {};
+	
 	$scope.members = [
 		{ name: 'Steven Natera',
 			info: {
@@ -30,7 +32,6 @@ app.controller('CoreController', function ($scope, $http) {
 			msg: sms_msg
 		};
 
-
 		$http.post('/message/send', smsData).then(function (res) {
 			console.log(res);
 		}, function(err){
@@ -38,5 +39,23 @@ app.controller('CoreController', function ($scope, $http) {
 		});
 
 	};
+
+	$scope.sendGuestSMS = function (guest){
+		var twilio_num = '+13142793690';
+		var sms_msg = 'Hey ' + guest.name + ', there is a guest waiting for you at the front desk.';
+		
+		var data = {
+			from_number: twilio_num,
+			to_number: '+1' + guest.number,
+			msg: sms_msg
+		};
+
+		$http.post('/message/send', data).then(function (res) {
+			console.log(res);
+		}, function(err){
+			console.log(err);
+		});
+
+	}
 
 });
