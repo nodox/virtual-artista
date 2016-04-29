@@ -9,6 +9,9 @@
 	   methodOverride = require('method-override'), // simulate DELETE and PUT (express4)
      path = require('path');
 
+var accountSid = 'ACfa8895b0fea34a097fa44440209418ee';
+var authToken = "b52d500c1adb29556f15b3d48d19417f";
+var client = require('twilio')(accountSid, authToken);
 
 module.exports.start = function start() {
 		// Initialize express
@@ -16,9 +19,9 @@ module.exports.start = function start() {
 
     // Start the app by listening on <port> at <host>
     var port = 5000;
-    var host = 'localhost';
+    var host = 'local.virtualartista.co';
 
-    app.use(express.static(path.resolve('./modules/core')));
+    app.use(express.static(path.resolve('./modules/')));
     app.use(morgan('dev'));                                         // log every request to the console
     app.use(bodyParser.urlencoded({'extended':'true'}));            // parse application/x-www-form-urlencoded
     app.use(bodyParser.json());                                     // parse application/json
@@ -31,8 +34,23 @@ module.exports.start = function start() {
   		res.sendFile(path.resolve('./modules/core/core.index.html'));
 		});
 
+    app.post('/message/send', function (req, res) {
 
-    app.listen(5000, function () {
+      client.messages.create({
+          body: req.body.msg,
+          to: req.body.to_number,
+          from: req.body.from_number
+      }, function(err, message) {
+          if(!err) {
+            return res.send(message);
+          }
+          return res.send(message);
+      });
+
+    });
+
+
+    app.listen(5000, host, function () {
       // Create server URL
       var server = 'http://' + host + ':' + 5000;
       

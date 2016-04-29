@@ -15,13 +15,60 @@
   </head>
 
   <body class="" ng-controller="CoreController">
-    <h1>Hello from Frontend!</h1>
-    <p>{{ greeting }}</p>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Tech Artista</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+          </ul>
+
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+            
+            <div class="center">
+                <h1>{{ greeting }}</h1>
+            </div>
+
+            <h4>{{ directions }}</h4>
+            <table class="table table-hover table-striped">
+              <thead>
+                <th>Name</th>
+              </thead>
+              <tbody>
+                 <tr ng-repeat="x in members">
+                  <td><a ng-click="sendSMS(x)">{{ x.name }}</a></td>
+                </tr>
+              </tbody>
+            </table>
+
+        </div>
+      </div>
+    </div>
+
 
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-    <script src="core.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+    <script src="bower_components/query-string/query-string.js"></script>
+    <script src="bower_components/angular-oauth2/dist/angular-oauth2.min.js"></script>
+    <script src="core/core.js"></script>
   </body>
 
 </html>
