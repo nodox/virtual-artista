@@ -1,0 +1,22 @@
+{
+  "name": "virtual-artista",
+  "description": "a virtual assistant for the front desk of techartista",
+  "main": "server.js",
+  "authors": [
+    "Steven Natera <snatera09@gmail.com> (https://github.com/snatera15)"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/nodox/virtual-artista",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "angular": "angularjs#^1.5.5"
+  }
+}
