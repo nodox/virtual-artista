@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/nodox/virtual-artista#readme",
   "dependencies": {
+    "body-parser": "^1.15.0",
     "bower": "^1.7.9",
     "express": "^4.13.4",
+    "method-override": "^2.3.5",
     "morgan": "^1.7.0"
   }
 }
