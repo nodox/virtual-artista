@@ -18,9 +18,8 @@ module.exports.start = function start() {
 	  var app = express();
 
     // Start the app by listening on <port> at <host>
-    var port = 5000;
+    var port = process.env.PORT || 5000;
     var host = 'local.virtualartista.co';
-    var prodHost = 'virtualartista.herokuapp.com';
 
 
     app.use(express.static(path.resolve('./modules/')));
@@ -52,7 +51,7 @@ module.exports.start = function start() {
     });
 
 
-    app.listen(5000, prodHost, function () {
+    app.listen(5000, function () {
       // Create server URL
       var server = 'http://' + host + ':' + 5000;
       
